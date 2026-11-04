@@ -165,7 +165,7 @@ export const VINOS: GrupoVinos[] = [
     region: "Rueda",
     vinos: [
       { nombre: "Verdejo Castilla de Aza", precio: "13,50 €" },
-      { nombre: "Corrector verdejo", precio: "11,50 €", revisar: "Nombre difícil de leer en la foto" },
+      { nombre: "Corrector verdejo", precio: "11,50 €" },
     ],
   },
   {
@@ -187,8 +187,8 @@ export const VINOS: GrupoVinos[] = [
   {
     region: "Manchegos",
     vinos: [
-      { nombre: "Biazu blanco ecológico", precio: "10,50 €", revisar: "Nombre difícil de leer en la foto" },
-      { nombre: "Biazu tinto ecológico", precio: "10,50 €", revisar: "Nombre difícil de leer en la foto" },
+      { nombre: "Biazu blanco ecológico", precio: "10,50 €" },
+      { nombre: "Biazu tinto ecológico", precio: "10,50 €" },
       { nombre: "Verdejo", precio: "12,00 €" },
     ],
   },
