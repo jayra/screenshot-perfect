@@ -165,7 +165,7 @@ export const VINOS: GrupoVinos[] = [
     region: "Rueda",
     vinos: [
       { nombre: "Verdejo Castilla de Aza", precio: "13,50 €" },
-      { nombre: "Corrector verdejo", precio: "11,50 €" },
+      { nombre: "Corrector verdejo", precio: "11,50 €", revisar: "Nombre difícil de leer en la foto" },
     ],
   },
   {

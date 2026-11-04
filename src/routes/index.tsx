@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FotoSlot } from "@/components/site/FotoSlot";
-import { DESTACADOS, FOTOS } from "@/data/fotos";
+import { DESTACADOS, FOTOS, HERO } from "@/data/fotos";
 import { buscarPlato } from "@/data/carta";
 import { RESTAURANTE } from "@/data/restaurante";
 
@@ -54,32 +54,47 @@ function Index() {
             </div>
           </div>
           <div className="md:col-span-6 lg:col-span-7">
-            <FotoSlot
-              foto={FOTOS.hero}
-              eager
-              tone="dark"
-              className="aspect-[4/3] w-full rounded-sm shadow-plate md:aspect-[5/4]"
-            />
+            <div className="relative">
+              <FotoSlot
+                foto={HERO}
+                eager
+                tone="dark"
+                className="aspect-[4/5] w-full rounded-sm shadow-plate md:aspect-[4/5] lg:aspect-[5/5]"
+              />
+              <p className="absolute bottom-4 left-4 rounded-sm bg-ember/80 px-3 py-1.5 text-sm italic text-ember-foreground backdrop-blur">
+                {HERO.plato}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Sobre */}
-      <section className="mx-auto max-w-4xl px-5 py-20 text-center md:py-28">
-        <p className="ornament eyebrow justify-center">El restaurante</p>
-        <h2 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-5xl">
-          Un salón luminoso, a la medida de cada celebración
-        </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Un espacio acogedor y amplio que puede dividirse en tres ambientes, cada uno decorado a tu
-          gusto: sencillo y elegante, o tan especial como quieras. Junto al salón, una terraza
-          acristalada y una zona al aire libre de estilo rústico.
-        </p>
-        <Button asChild variant="link" className="mt-6 text-base">
-          <Link to="/nosotros">
-            Conoce nuestros espacios <ArrowRight />
-          </Link>
-        </Button>
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
+        <div className="grid grid-cols-5 gap-4">
+          <FotoSlot foto={FOTOS.banquete} className="col-span-3 aspect-[3/4] rounded-sm" />
+          <FotoSlot foto={FOTOS.privado} className="col-span-2 mt-16 aspect-[3/4] rounded-sm" />
+        </div>
+        <div>
+          <p className="ornament eyebrow">El restaurante</p>
+          <h2 className="mt-5 font-display text-4xl font-semibold leading-tight md:text-5xl">
+            Un salón luminoso, a la medida de cada celebración
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            Un espacio acogedor y amplio que puede dividirse en tres ambientes, cada uno decorado a tu
+            gusto: sencillo y elegante, o tan especial como quieras. Junto al salón, una terraza
+            acristalada y una zona al aire libre de estilo rústico.
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            Bautizos, comuniones, aniversarios o una comida en familia: cuéntanos qué celebras y lo
+            preparamos contigo.
+          </p>
+          <Button asChild variant="link" className="mt-6 px-0 text-base">
+            <Link to="/nosotros">
+              Conoce nuestros espacios <ArrowRight />
+            </Link>
+          </Button>
+        </div>
       </section>
 
       {/* Destacados */}
@@ -124,9 +139,9 @@ function Index() {
               ¿Te guardamos una mesa?
             </h2>
             <p className="mt-4 max-w-lg text-primary-foreground/85">
-              Los arroces se preparan para un mínimo de dos personas. Cuéntanos cuántos sois y qué
-              celebráis.
+              Es necesario reservar. Los arroces se preparan para un mínimo de dos personas.
             </p>
+            <p className="mt-2 text-sm text-primary-foreground/70">{RESTAURANTE.direccion}</p>
           </div>
           <div className="flex flex-wrap gap-3 md:justify-end">
             <Button asChild variant="heroOutline" size="xl" className="border-primary-foreground/60">
