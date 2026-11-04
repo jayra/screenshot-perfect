@@ -26,9 +26,20 @@ export const Route = createFileRoute("/nosotros")({
 const ESPACIOS = [
   {
     foto: FOTOS.salon,
-    titulo: "El salón, en tres ambientes",
+    titulo: "El comedor",
     texto:
-      "Un espacio amplio y luminoso que puede dividirse en tres zonas. Cada una se puede personalizar en decoración, disposición de las mesas y detalles: con un estilo sencillo y elegante, o tan elaborado como quieras para tu celebración.",
+      "Un espacio amplio y luminoso, con vigas de madera y mesas vestidas, pensado para comer con calma.",
+  },
+  {
+    foto: FOTOS.banquete,
+    titulo: "Celebraciones en tres ambientes",
+    texto:
+      "El salón puede dividirse en tres zonas. Cada una se personaliza en decoración, disposición de las mesas y detalles: con un estilo sencillo y elegante, o tan elaborado como quieras para tu evento.",
+  },
+  {
+    foto: FOTOS.privado,
+    titulo: "Comedor privado",
+    texto: "Para reuniones más íntimas, un comedor reservado que se decora a medida de cada ocasión.",
   },
   {
     foto: FOTOS.terraza,
@@ -57,6 +68,10 @@ function NosotrosPage() {
           tradición castellana, como el arroz con bogavante o el chuletón de ternera de Ávila a la
           brasa. Y en la carta, la receta familiar de la abuela Antonia: el arroz caldoso con conejo.
         </p>
+        <p className="mt-8 text-lg text-muted-foreground">
+          Si necesitas información sobre cualquier evento que quieras celebrar y su personalización,
+          no dudes en preguntarnos.
+        </p>
         <div
           className="mt-10 rounded-sm border border-dashed border-pending-foreground/50 bg-pending p-5 text-sm text-pending-foreground"
           role="note"
@@ -71,7 +86,7 @@ function NosotrosPage() {
           <article key={e.titulo} className="grid items-center gap-8 md:grid-cols-2 md:gap-16">
             <FotoSlot foto={e.foto} className={`aspect-[4/3] rounded-sm ${i % 2 === 1 ? "md:order-2" : ""}`} />
             <div>
-              <p className="eyebrow text-primary">0{i + 1}</p>
+              <p className="eyebrow text-primary">{String(i + 1).padStart(2, "0")}</p>
               <h2 className="mt-2 font-display text-4xl font-semibold">{e.titulo}</h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{e.texto}</p>
             </div>
