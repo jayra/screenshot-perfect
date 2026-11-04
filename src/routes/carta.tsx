@@ -5,6 +5,7 @@ import { PageHeading } from "@/components/site/PageHeading";
 import { Switch } from "@/components/ui/switch";
 import { ALERGENOS, CARTA, VINOS, type Plato } from "@/data/carta";
 import { cn } from "@/lib/utils";
+import { FOTO_DE_PLATO } from "@/data/fotos";
 
 export const Route = createFileRoute("/carta")({
   head: () => ({
@@ -143,8 +144,19 @@ function CartaPage() {
 }
 
 function PlatoRow({ plato }: { plato: Plato }) {
+  const foto = FOTO_DE_PLATO[plato.nombre];
   return (
-    <li>
+    <li className="flex gap-4">
+      {foto?.src && (
+        <img
+          src={foto.src}
+          alt={foto.alt}
+          loading="lazy"
+          decoding="async"
+          className="size-16 shrink-0 rounded-sm object-cover md:size-20"
+        />
+      )}
+      <div className="min-w-0 flex-1">
       <div className="flex items-baseline gap-3">
         <h3 className="font-display text-xl font-semibold leading-snug md:text-[1.35rem]">{plato.nombre}</h3>
         <span className="dot-leader" aria-hidden />
@@ -177,6 +189,7 @@ function PlatoRow({ plato }: { plato: Plato }) {
           ))}
         </ul>
       )}
+      </div>
     </li>
   );
 }

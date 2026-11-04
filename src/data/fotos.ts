@@ -58,6 +58,13 @@ export const DESTACADOS: { plato: string; foto: Foto }[] = [
   { plato: "Rodaballo al ajillo", foto: FOTOS.rodaballo },
 ];
 
+/** Photo for a menu dish, keyed by its exact menu name. */
+export const FOTO_DE_PLATO: Record<string, Foto> = Object.fromEntries(
+  Object.values(FOTOS)
+    .filter((f): f is Foto & { plato: string } => Boolean(f.src && f.plato))
+    .map((f) => [f.plato, f]),
+);
+
 export const GALERIA: Foto[] = [
   FOTOS.pulpo,
   FOTOS.banquete,

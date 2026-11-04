@@ -35,6 +35,7 @@ function ContactoPage() {
 
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24 lg:grid-cols-4">
         <Card icon={<Phone />} titulo="Teléfono y reservas">
+          {r.reservaObligatoria && <p className="mb-3 text-sm text-muted-foreground">Es necesario reservar.</p>}
           {r.telefono ? (
             <>
               <p className="text-lg font-semibold">{r.telefono}</p>
