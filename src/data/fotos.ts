@@ -39,7 +39,7 @@ export const FOTOS = {
   ensalada: { id: "ensalada", src: ensaladaCasa, alt: "Ensalada templada con ventresca y reducción", plato: "Ensalada de la casa", forma: "horizontal" },
   revuelto: { id: "revuelto", src: revueltoAjetes, alt: "Revuelto de ajetes con picos de pan", plato: "Revuelto de ajetes", forma: "horizontal" },
   cogollos: { id: "cogollos", src: cogollos, alt: "Cogollos con anchoas, tomate y reducción", plato: "Cogollos con anchoas", forma: "horizontal" },
-  vieiras: { id: "vieiras", src: vieiras, alt: "Vieiras a la plancha en su concha con limón", plato: "Vieiras", forma: "horizontal" },
+  vieiras: { id: "vieiras", src: vieiras, alt: "Zamburiñas a la plancha", plato: "Zamburiñas", forma: "horizontal" },
   postre: { id: "postre", src: postrePlato, alt: "Postre emplatado con reducción", plato: "Postre", forma: "vertical" },
   salon: { id: "salon", src: salonComedor, alt: "Comedor principal con vigas de madera y mesas vestidas", plato: "Comedor", forma: "horizontal" },
   banquete: { id: "banquete", src: salonBanquete, alt: "Salón preparado para una celebración con mesa larga", plato: "Salón de celebraciones", forma: "horizontal" },
@@ -83,3 +83,4 @@ export const GALERIA: Foto[] = [
   FOTOS.ensalada,
   FOTOS.revuelto,
 ];
+
