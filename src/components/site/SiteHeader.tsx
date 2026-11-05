@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/brand-logo.png";
 import { Button } from "@/components/ui/button";
 import { RESTAURANTE } from "@/data/restaurante";
 
@@ -17,9 +18,25 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-ember-foreground/10 bg-ember/95 text-ember-foreground backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
-        <Link to="/" className="group flex flex-col leading-none" onClick={() => setOpen(false)}>
-          <span className="eyebrow text-[0.6rem] text-saffron">Restaurante</span>
-          <span className="font-display text-2xl font-semibold tracking-tight">{RESTAURANTE.nombre}</span>
+        <Link
+          to="/"
+          className="group flex min-w-0 items-center gap-2.5 leading-none"
+          onClick={() => setOpen(false)}
+          aria-label={`${RESTAURANTE.nombreCompleto} — Inicio`}
+        >
+          <span className="relative size-11 shrink-0 overflow-hidden rounded-full border border-saffron/70" aria-hidden="true">
+            <img
+              src={logo}
+              alt=""
+              className="absolute -left-[26px] -top-[9px] h-[111px] w-[101px] max-w-none"
+            />
+          </span>
+          <span className="flex min-w-0 flex-col gap-1">
+            <span className="eyebrow text-[0.55rem] text-saffron">Restaurante</span>
+            <span className="whitespace-nowrap font-display text-xl font-semibold tracking-tight sm:text-2xl">
+              {RESTAURANTE.nombre}
+            </span>
+          </span>
         </Link>
 
         <nav aria-label="Principal" className="hidden items-center gap-1 md:flex">
