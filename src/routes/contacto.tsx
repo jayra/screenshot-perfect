@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, MapPin, Phone, Share2 } from "lucide-react";
+import { Clock, MapPin, MessageCircle, Phone, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeading } from "@/components/site/PageHeading";
 import { Pendiente } from "@/components/site/Pendiente";
@@ -30,7 +30,7 @@ function ContactoPage() {
       <PageHeading
         eyebrow="Visítanos"
         title="Reserva tu mesa"
-        intro="Llámanos para reservar o para preparar tu celebración en uno de nuestros espacios."
+        intro="Ana gestiona las reservas en el +34 650 29 22 84, por llamada o WhatsApp. También puedes escribirnos para preparar tu celebración."
       />
 
       <section className="mx-auto grid max-w-7xl gap-6 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24 lg:grid-cols-4">
@@ -39,9 +39,19 @@ function ContactoPage() {
           {r.telefono ? (
             <>
               <p className="text-lg font-semibold">{r.telefono}</p>
-              <Button asChild variant="hero" size="lg" className="mt-4">
-                <a href={telHref(r.telefono)}>Llamar ahora</a>
-              </Button>
+              <p className="mt-2 text-sm text-muted-foreground">Canal oficial de reservas. Ana atiende personalmente.</p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Button asChild variant="hero" size="lg">
+                  <a href={telHref(r.telefono)}>Llamar a Ana</a>
+                </Button>
+                {r.whatsappUrl && (
+                  <Button asChild variant="outline" size="lg">
+                    <a href={r.whatsappUrl} target="_blank" rel="noreferrer">
+                      <MessageCircle className="mr-2 size-4" /> Reservar por WhatsApp
+                    </a>
+                  </Button>
+                )}
+              </div>
             </>
           ) : (
             <Pendiente>teléfono de reservas</Pendiente>
@@ -76,15 +86,19 @@ function ContactoPage() {
 
         <Card icon={<Share2 />} titulo="Redes sociales">
           {r.redes.length > 0 ? (
-            <ul className="space-y-1">
-              {r.redes.map((s) => (
-                <li key={s.url}>
-                  <a href={s.url} target="_blank" rel="noreferrer" className="text-primary underline-offset-4 hover:underline">
-                    {s.nombre}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <p className="mb-3 text-sm text-muted-foreground">Síguenos en Facebook para ver novedades del restaurante.</p>
+              <ul className="space-y-1">
+                {r.redes.map((s) => (
+                  <li key={s.url}>
+                    <a href={s.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-primary underline-offset-4 hover:underline">
+                      <span aria-hidden="true" className="inline-flex size-6 items-center justify-center rounded-full bg-[#1877F2] font-sans text-sm font-bold text-white">f</span>
+                      {s.nombre} de Arrocería Martín
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ) : (
             <Pendiente>redes sociales</Pendiente>
           )}

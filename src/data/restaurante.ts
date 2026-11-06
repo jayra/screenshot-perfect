@@ -5,10 +5,11 @@ export const RESTAURANTE = {
   cocina: "Cocina castellana y arrocería",
   localidad: "Ocaña, Toledo",
   direccion: "Carretera Antigua Nacional 4, Km 62, 45300 Ocaña, Toledo" as string | null,
-  telefono: null as string | null, // e.g. "+34 600 000 000"
+  telefono: "+34 650 29 22 84" as string | null,
+  whatsappUrl: "https://wa.me/34650292284" as string | null,
   email: null as string | null,
   horario: null as { dias: string; horas: string }[] | null,
-  redes: [] as { nombre: string; url: string }[],
+  redes: [{ nombre: "Facebook", url: "https://www.facebook.com/martinarroceria/" }] as { nombre: string; url: string }[],
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Restaurante+Martin+Oca%C3%B1a" as string | null,
   reservaObligatoria: true,
 };
