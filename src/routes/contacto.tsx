@@ -40,14 +40,14 @@ function ContactoPage() {
             <>
               <p className="text-lg font-semibold">{r.telefono}</p>
               <p className="mt-2 text-sm text-muted-foreground">Canal oficial de reservas. Ana atiende personalmente.</p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <Button asChild variant="hero" size="lg">
+              <div className="mt-4 grid gap-3">
+                <Button asChild variant="hero" size="lg" className="w-full whitespace-normal px-3 text-center leading-tight">
                   <a href={telHref(r.telefono)}>Llamar a Ana</a>
                 </Button>
                 {r.whatsappUrl && (
-                  <Button asChild variant="outline" size="lg">
+                  <Button asChild variant="outline" size="lg" className="w-full whitespace-normal px-3 text-center leading-tight">
                     <a href={r.whatsappUrl} target="_blank" rel="noreferrer">
-                      <MessageCircle className="mr-2 size-4" /> Reservar por WhatsApp
+                      <span aria-hidden="true" className="mr-2 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white"><MessageCircle className="size-3.5" /></span> Reservar por WhatsApp
                     </a>
                   </Button>
                 )}
@@ -91,10 +91,12 @@ function ContactoPage() {
               <ul className="space-y-1">
                 {r.redes.map((s) => (
                   <li key={s.url}>
-                    <a href={s.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-primary underline-offset-4 hover:underline">
-                      <span aria-hidden="true" className="inline-flex size-6 items-center justify-center rounded-full bg-[#1877F2] font-sans text-sm font-bold text-white">f</span>
-                      {s.nombre} de Arrocería Martín
-                    </a>
+                    <Button asChild variant="outline" size="lg" className="w-full whitespace-normal px-3 text-center leading-tight">
+                      <a href={s.url} target="_blank" rel="noreferrer">
+                        <span aria-hidden="true" className="mr-2 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-[#1877F2] font-sans text-sm font-bold leading-none text-white">f</span>
+                        Visítanos en Facebook
+                      </a>
+                    </Button>
                   </li>
                 ))}
               </ul>
